@@ -1,0 +1,213 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  ColytraLoadingPlugin (colytra-1.12.2-1.1.0.1.jar)
+  Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  LoadingPlugin (ResourceLoader-MC1.12.1-1.5.3.jar)
+  AppleCore (AppleCore-mc1.12.2-3.1.4.jar)
+  IvToolkit (IvToolkit-1.3.3-1.12.jar)
+  JEIDLoadingPlugin (JustEnoughIDs-1.0.2-26.jar)
+  DynamicSurroundingsCore (DynamicSurroundings-core-1.12.2-3.4.10.6.jar)
+  ForgelinPlugin (Forgelin-1.8.2.jar)
+  Born in a Barn (Born In A Barn V1.8-1.12-1.1.jar)
+  CTMCorePlugin (CTM-MC1.12.2-0.3.3.22.jar)
+  LoadingPlugin (Bloodmoon-MC1.12.2-1.5.3.jar)
+Contact their authors BEFORE contacting forge
+
+// There are four lights!
+
+Time: 1/15/19 9:35 PM
+Description: Exception in server tick loop
+
+java.lang.NoClassDefFoundError: net/minecraftforge/client/model/ModelLoader
+	at com.mic.dungeonmod.init.ModItems$ItemRegistry.register(ModItems.java:53)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_87_ItemRegistry_register_Register.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus$1.invoke(EventBus.java:144)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.registries.GameData.fireRegistryEvents(GameData.java:807)
+	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:628)
+	at net.minecraftforge.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:99)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:333)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71197_b(DedicatedServer.java:125)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:486)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: net.minecraftforge.client.model.ModelLoader
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 12 more
+Caused by: java.lang.NoClassDefFoundError: net/minecraft/client/renderer/block/model/ModelBakery
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:182)
+	... 14 more
+Caused by: java.lang.ClassNotFoundException: net.minecraft.client.renderer.block.model.ModelBakery
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 18 more
+Caused by: net.minecraftforge.fml.common.asm.ASMTransformerWrapper$TransformerException: Exception in class transformer net.minecraftforge.fml.common.asm.transformers.SideTransformer@6a10b263 from coremod FMLCorePlugin
+	at net.minecraftforge.fml.common.asm.ASMTransformerWrapper$TransformerWrapper.transform(ASMTransformerWrapper.java:260)
+	at net.minecraft.launchwrapper.LaunchClassLoader.runTransformers(LaunchClassLoader.java:279)
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:176)
+	... 20 more
+Caused by: java.lang.RuntimeException: Attempted to load class cgb for invalid side SERVER
+	at net.minecraftforge.fml.common.asm.transformers.SideTransformer.transform(SideTransformer.java:62)
+	at net.minecraftforge.fml.common.asm.ASMTransformerWrapper$TransformerWrapper.transform(ASMTransformerWrapper.java:256)
+	... 22 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_201, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1604404560 bytes (1530 MB) / 2121793536 bytes (2023 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 2 total; -Xmx4G -Xms1G
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2806 94 mods loaded, 94 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State | ID                                   | Version                  | Source                                            | Signature                                |
+	|:----- |:------------------------------------ |:------------------------ |:------------------------------------------------- |:---------------------------------------- |
+	| LCH   | minecraft                            | 1.12.2                   | minecraft.jar                                     | None                                     |
+	| LCH   | mcp                                  | 9.42                     | minecraft.jar                                     | None                                     |
+	| LCH   | FML                                  | 8.0.99.99                | forge-1.12.2-14.23.5.2806-universal.jar           | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCH   | forge                                | 14.23.5.2806             | forge-1.12.2-14.23.5.2806-universal.jar           | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCH   | ivtoolkit                            | 1.3.3-1.12               | minecraft.jar                                     | None                                     |
+	| LCH   | dsurroundcore                        |                          | minecraft.jar                                     | None                                     |
+	| LCH   | ucb                                  | 0.3 Beta                 | [1.12.2] UnderwaterChestBubbles_-0.3_Beta.jar     | None                                     |
+	| LCH   | advancedmortars                      | 1.12.2-1.6.22            | advancedmortars-1.12.2-1.6.22.jar                 | None                                     |
+	| LCH   | angermanagement                      | 1.0.0                    | angermanagement-1.0.0.jar                         | None                                     |
+	| LCH   | applecore                            | 3.1.4                    | AppleCore-mc1.12.2-3.1.4.jar                      | None                                     |
+	| LCH   | forgelin                             | 1.8.2                    | Forgelin-1.8.2.jar                                | None                                     |
+	| LCH   | baubles                              | 1.5.2                    | Baubles-1.12-1.5.2.jar                            | None                                     |
+	| LCH   | thaumcraft                           | 6.1.BETA26               | Thaumcraft-1.12.2-6.1.BETA26.jar                  | None                                     |
+	| LCH   | thaumic_arcana                       | 1.2.0                    | Thaumic Arcana-1.2.0.jar                          | None                                     |
+	| LCH   | jei                                  | 4.13.1.225               | jei_1.12.2-4.13.1.225.jar                         | None                                     |
+	| LCH   | appleskin                            | 1.0.9                    | AppleSkin-mc1.12-1.0.9.jar                        | None                                     |
+	| LCH   | aquaculture                          | 1.6.8                    | Aquaculture-1.12.2-1.6.8.jar                      | None                                     |
+	| LCH   | crafttweaker                         | 4.1.13                   | CraftTweaker2-1.12-4.1.13.jar                     | None                                     |
+	| LCH   | athenaeum                            | 1.12.2-1.15.0            | athenaeum-1.12.2-1.15.0.jar                       | None                                     |
+	| LCH   | bamboozled                           | 1.0.10                   | Bamboozled-1.12-1.0.10.jar                        | None                                     |
+	| LCH   | biomesoplenty                        | 7.0.1.2419               | BiomesOPlenty-1.12.2-7.0.1.2419-universal.jar     | None                                     |
+	| LCH   | bloodmoon                            | 1.5.3                    | Bloodmoon-MC1.12.2-1.5.3.jar                      | d72e0dd57935b3e9476212aea0c0df352dd76291 |
+	| LCH   | bnbgaminglib                         | 2.16.1                   | BNBGamingLib-1.12.2-2.16.1.jar                    | None                                     |
+	| LCH   | bookshelf                            | 2.3.569                  | Bookshelf-1.12.2-2.3.569.jar                      | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCH   | cavegenerator                        | 0.12                     | cavegenerator-0.12.jar                            | None                                     |
+	| LCH   | cavern                               | 2.1.8                    | Cavern_1.12.2-v2.1.8.jar                          | None                                     |
+	| LCH   | colytra                              | 1.1.0.1                  | colytra-1.12.2-1.1.0.1.jar                        | 5d5b8aee896a4f5ea3f3114784742662a67ad32f |
+	| LCH   | comforts                             | 1.4.1.1                  | comforts-1.12.2-1.4.1.1.jar                       | 5d5b8aee896a4f5ea3f3114784742662a67ad32f |
+	| LCH   | cosmeticarmorreworked                | 1.12.2-v4                | CosmeticArmorReworked-1.12.2-v4.jar               | aaaf83332a11df02406e9f266b1b65c1306f0f76 |
+	| LCH   | cosmeticarmorreworked|tombmanygraves | 1.12.2-v4                | CosmeticArmorReworked-1.12.2-v4.jar               | aaaf83332a11df02406e9f266b1b65c1306f0f76 |
+	| LCH   | crafttweakerjei                      | 2.0.2                    | CraftTweaker2-1.12-4.1.13.jar                     | None                                     |
+	| LCH   | dungeonmod                           | 1.0                      | Crawler 1.1.3.jar                                 | None                                     |
+	| LCH   | cucumber                             | 1.1.3                    | Cucumber-1.12.2-1.1.3.jar                         | None                                     |
+	| LCH   | dimensionalcontrol                   | 2.10.3                   | DimensionalControl-1.12.2-2.10.3.jar              | None                                     |
+	| LCH   | dirt2path                            | 1.7.1                    | dirt2path-1.8.0.jar                               | None                                     |
+	| LCH   | dldungeonsjbg                        | 1.12.0                   | DoomlikeDungeons-1.12.0-MC1.12.2.jar              | None                                     |
+	| LCH   | gamestages                           | 2.0.112                  | GameStages-1.12.2-2.0.112.jar                     | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCH   | dropt                                | 1.12.2-1.12.0            | dropt-1.12.2-1.12.0.jar                           | None                                     |
+	| LCH   | dungeonmobs                          | 5.7.0                    | dungeonmobs-5.7.0-MC1.12.2.jar                    | None                                     |
+	| LCH   | gottschcore                          | 1.6.0                    | GottschCore-mc1.12.2-f14.23.5.2768-v1.6.0.jar     | None                                     |
+	| LCH   | dungeons2                            | 1.6.1                    | Dungeons2-mc1.12.2-f14.23.5.2768-v1.6.1.jar       | None                                     |
+	| LCH   | dungeontactics                       | DT-0.15.8                | DungeonTactics-1.12.2-0.15.8.jar                  | None                                     |
+	| LCH   | dynamicstealth                       | 1.12.2.029               | DynamicStealth-1.12.2.029.jar                     | None                                     |
+	| LCH   | erebus                               | 1.0.25                   | Erebus-1.0.25.jar                                 | None                                     |
+	| LCH   | familiarfauna                        | 1.0.11                   | FamiliarFauna-1.12.2-1.0.11.jar                   | None                                     |
+	| LCH   | fastleafdecay                        | v14                      | FastLeafDecay-v14.jar                             | None                                     |
+	| LCH   | fastbench                            | 1.6.0                    | FastWorkbench-1.12.2-1.6.0.jar                    | None                                     |
+	| LCH   | ferdinandsflowers                    | 1.10.4.1                 | Ferdinand's Flowers-1.12.x-1.10.4.1.jar           | None                                     |
+	| LCH   | mantle                               | 1.12-1.3.3.39            | Mantle-1.12-1.3.3.39.jar                          | None                                     |
+	| LCH   | natura                               | 1.12.2-4.3.2.66          | natura-1.12.2-4.3.2.66.jar                        | None                                     |
+	| LCH   | forestry                             | 5.8.1.322                | forestry_1.12.2-5.8.1.322.jar                     | None                                     |
+	| LCH   | grimoireofgaia                       | 1.6.8                    | GrimoireOfGaia3-1.12.2-1.6.8.jar                  | None                                     |
+	| LCH   | hardcorequesting                     | 1.12.2                   | HQM-1.12-5.3.5.jar                                | None                                     |
+	| LCH   | huntingdim                           | 1.0.36                   | HuntingDimension-1.12.2-1.0.36.jar                | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCH   | waila                                | 1.8.26                   | Hwyla-1.8.26-B41_1.12.2.jar                       | None                                     |
+	| LCH   | ichunutil                            | 7.1.4                    | iChunUtil-1.12.2-7.1.4.jar                        | None                                     |
+	| LCH   | incontrol                            | 3.8.3                    | incontrol-1.12-3.8.3.jar                          | None                                     |
+	| LCH   | infernalmobs                         | 1.7.5                    | InfernalMobs-1.12.2.jar                           | None                                     |
+	| LCH   | mtlib                                | 3.0.5                    | MTLib-3.0.5.jar                                   | None                                     |
+	| LCH   | initialinventory                     | 2.0.2                    | InitialInventory-3.0.0.jar                        | None                                     |
+	| LCH   | inventorytweaks                      | 1.63+release.109.220f184 | InventoryTweaks-1.63.jar                          | 55d2cd4f5f0961410bf7b91ef6c6bf00a766dcbe |
+	| LCH   | itemstages                           | 2.0.46                   | ItemStages-1.12.2-2.0.46.jar                      | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCH   | jeibees                              | 0.9.0.5                  | jeibees-0.9.0.5-mc1.12.2.jar                      | None                                     |
+	| LCH   | journeymap                           | 1.12.2-5.5.3             | journeymap-1.12.2-5.5.3.jar                       | None                                     |
+	| LCH   | jeid                                 | 1.0.2-26                 | JustEnoughIDs-1.0.2-26.jar                        | None                                     |
+	| LCH   | reborncore                           | 3.13.1.402               | RebornCore-1.12.2-3.13.1.402-universal.jar        | 8727a3141c8ec7f173b87aa78b9b9807867c4e6b |
+	| LCH   | justsleep                            | 1.0.0.1                  | JustSleep-1.0.0.1.jar                             | None                                     |
+	| LCH   | lex                                  | 1.0.8                    | LibEx-1.12.2-1.0.8.jar                            | None                                     |
+	| LCH   | loottweaker                          | 0.0.8                    | LootTweaker-1.12.2-0.0.8.jar                      | None                                     |
+	| LCH   | monk                                 | 1.4                      | monk-mod-1.4.jar                                  | None                                     |
+	| LCH   | nex                                  | 2.0.8                    | NetherEx-1.12.2-2.0.8.jar                         | None                                     |
+	| LCH   | pickletweaks                         | 2.0.17                   | PickleTweaks-1.12-2.0.17.jar                      | None                                     |
+	| LCH   | pillagers                            | 1.0.2                    | Pillagers-1.12.2-1.0.2.jar                        | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCH   | recipestages                         | 1.1.1                    | RecipeStages-1.1.1.jar                            | None                                     |
+	| LCH   | reccomplex                           | 1.4.7                    | RecurrentComplex-1.4.7.jar                        | None                                     |
+	| LCH   | additionalstructures                 | 2.0.0                    | Rex's-Additional-Structures-1.12.x -(v.2.0.0).jar | None                                     |
+	| LCH   | roguelike                            | 1.8.0                    | RoguelikeDungeons-1.12.2-1.8.0.jar                | None                                     |
+	| LCH   | ruins                                | 17.1                     | Ruins-1.12.2.jar                                  | None                                     |
+	| LCH   | flammpfeil.slashblade                | mc1.12-r15               | SlashBlade-mc1.12-r15.jar                         | None                                     |
+	| LCH   | solcarrot                            | 1.3.1                    | solcarrot-1.12.2-1.3.3.jar                        | None                                     |
+	| LCH   | stg                                  | 1.12.2-1.2.3             | stg-1.12.2-1.2.3.jar                              | None                                     |
+	| LCH   | switchbow                            | 1.5.5                    | switchbow-1.5.5-1.12.2.jar                        | None                                     |
+	| LCH   | tg                                   | 0.1.5.0                  | Thaumic_Gadgets_1.12.2_0.1.5.1_tb.26.jar          | None                                     |
+	| LCH   | thaumkatana                          | 1.0.0                    | Thaumickatana_V1.0.8_MC1.12.2.jar                 | None                                     |
+	| LCH   | thaumicperiphery                     | 0.3.0                    | thaumicperiphery-0.3.0.jar                        | None                                     |
+	| LCH   | lastsmith                            | 1.2.0                    | TLS_V1.2.0_MC1.12.2.jar                           | None                                     |
+	| LCH   | traverse                             | 1.6.0                    | Traverse-1.12.2-1.6.0-69.jar                      | None                                     |
+	| LCH   | twilightforest                       | 3.8.689                  | twilightforest-1.12.2-3.8.689-universal.jar       | None                                     |
+	| LCH   | vampirism                            | 1.4.9                    | Vampirism-1.12.2-1.4.9.jar                        | None                                     |
+	| LCH   | teamlapen-lib                        | 1.4.9                    | Vampirism-1.12.2-1.4.9.jar                        | None                                     |
+	| LCH   | wanionlib                            | 1.12.2-2.2               | WanionLib-1.12.2-2.2.jar                          | None                                     |
+	| LCH   | wawla                                | 2.5.265                  | Wawla-1.12.2-2.5.265.jar                          | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCH   | dsurround                            | 3.4.10.6                 | DynamicSurroundings-1.12.2-3.4.10.6.jar           | 7a2128d395ad96ceb9d9030fbd41d035b435753a |
+	| LCH   | unidict                              | 1.12.2-2.9.2             | UniDict-1.12.2-2.9.2.jar                          | None                                     |
+
+	Loaded coremods (and transformers): 
+ColytraLoadingPlugin (colytra-1.12.2-1.1.0.1.jar)
+  c4.colytra.asm.ElytraTransformer
+Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  invtweaks.forge.asm.ContainerTransformer
+LoadingPlugin (ResourceLoader-MC1.12.1-1.5.3.jar)
+  lumien.resourceloader.asm.ClassTransformer
+AppleCore (AppleCore-mc1.12.2-3.1.4.jar)
+  squeek.applecore.asm.TransformerModuleHandler
+IvToolkit (IvToolkit-1.3.3-1.12.jar)
+  
+JEIDLoadingPlugin (JustEnoughIDs-1.0.2-26.jar)
+  org.dimdev.jeid.JEIDTransformer
+DynamicSurroundingsCore (DynamicSurroundings-core-1.12.2-3.4.10.6.jar)
+  org.blockartistry.DynSurround.asm.Transformer
+ForgelinPlugin (Forgelin-1.8.2.jar)
+  
+Born in a Barn (Born In A Barn V1.8-1.12-1.1.jar)
+  com.chocohead.biab.BornInABarn
+CTMCorePlugin (CTM-MC1.12.2-0.3.3.22.jar)
+  team.chisel.ctm.client.asm.CTMTransformer
+LoadingPlugin (Bloodmoon-MC1.12.2-1.5.3.jar)
+  lumien.bloodmoon.asm.ClassTransformer
+	Pulsar/natura loaded Pulses: 
+		- NaturaCommons (Enabled/Forced)
+		- NaturaOverworld (Enabled/Not Forced)
+		- NaturaNether (Enabled/Not Forced)
+		- NaturaDecorative (Enabled/Not Forced)
+		- NaturaTools (Enabled/Not Forced)
+		- NaturaEntities (Enabled/Not Forced)
+		- NaturaOredict (Enabled/Forced)
+		- NaturaWorld (Enabled/Not Forced)
+
+	RebornCore: 
+		Plugin Engine: 0
+		RebornCore Version: 3.13.1.402
+		Runtime Debofucsation 1
+	Profiler Position: N/A (disabled)
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)
